@@ -1,6 +1,11 @@
 import React from "react";
 import GetAllVideos from "./Components/AllVideos";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
+import HomePage from "./Pages/Home";
+import Video from "./Components/video";
+
+
+
 
 
 
@@ -9,7 +14,8 @@ const App =()=>{
     <>
     <BrowserRouter>
     <Routes>
-      <Route path="/"element={<GetAllVideos/>}/>
+      <Route path="/"element={<HomePage/>}/>
+      <Route path="/video/:id" element={<Video/>}/>
     </Routes>
     </BrowserRouter>
     
