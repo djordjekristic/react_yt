@@ -1,10 +1,24 @@
-import React from "react";
+import React, { useState } from "react";
 import GetAllVideos from "../Components/AllVideos";
+import SearchBar from "../Components/SearchBar";
+import VIDEOS from "./../videos.json"
+
+
+
+
 
 const HomePage = ()=>{
+
+  let [videos,setVideos] = useState(VIDEOS);
+  let [filteredVideos,setFilteredVideos] = useState(VIDEOS);
+  const handleSearchVideo = (results) =>{
+    setFilteredVideos(results);
+  }
+  
     return(
         <>
-          <GetAllVideos/>
+          <SearchBar videos={videos} onSearchVideo={handleSearchVideo}/>
+          <GetAllVideos videos={filteredVideos}/>
         </>
     )
 }
